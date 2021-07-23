@@ -36,14 +36,14 @@ jobs:
         env:
           HOST_IP: ${{ steps.ip.outputs.ipv4 }}
 
+      - name: Wait Grid is UP
+        run: ./selenium-grid/wait-for-grid.sh
+
       - name: Load Jenkins data
         run: |
          if [ ! -f /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/jenkins_backup.tar ]; then
                curl http://buildemojis.com/jenkins_backup.tar -o /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/jenkins_backup.tar
          fi
-
-      - name: Wait Grid is UP
-        run: ./selenium-grid/wait-for-grid.sh
 
       - name: Insatll Jenkins data
         run: |
