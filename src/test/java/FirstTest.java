@@ -6,11 +6,5 @@ public class FirstTest extends BaseTest {
     @Test
     public void test() {
         getDriver().findElement(By.xpath("//a[@href='/asynchPeople/']")).click();
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }
