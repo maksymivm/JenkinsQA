@@ -71,7 +71,7 @@ System.out.println(con.getResponseCode());
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
 
-        driver.get("http://localhost:8080/");
+        driver.get("http://localhost.host:8080/");
         driver.findElement(By.id("j_username")).sendKeys("admin");
         driver.findElement(By.xpath("//input[@name='j_password']")).sendKeys("159875321");
         driver.findElement(By.className("submit-button")).click();
