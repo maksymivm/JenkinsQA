@@ -28,8 +28,8 @@ jobs:
         id: ip
         uses: haythem/public-ip@v1.2
 
-      - name: Docker login
-        run: echo ${{ secrets.DOCKER_PAS }} | docker login --username ${{ secrets.DOCKER_USER }} --password-stdin
+#      - name: Docker login
+#        run: echo ${{ secrets.DOCKER_PAS }} | docker login --username ${{ secrets.DOCKER_USER }} --password-stdin
 
       - name: Docker start
         run: docker-compose -f ./selenium-grid/docker-compose.yml up -d
