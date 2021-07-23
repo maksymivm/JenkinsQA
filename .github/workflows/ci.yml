@@ -47,8 +47,8 @@ jobs:
 
       - name: Insatll Jenkins data
         run: |
-          docker run --rm --volumes-from jenkins2 -v /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid:/backup ubuntu bash -c "cd /var && tar xf /backup/jenkins_backup.tar --strip 1"
-          docker restart jenkins2
+          docker run --rm --volumes-from jenkins-container -v /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid:/backup ubuntu bash -c "cd /var && tar xf /backup/jenkins_backup.tar --strip 1"
+          docker restart jenkins-container
           sleep 120
 
       - name: Maven test
