@@ -51,8 +51,8 @@ jobs:
           docker restart jenkins-container
           sleep 120
 
-      - name: Maven test
-        run: mvn test
+#      - name: Maven test
+#        run: mvn test
 
       - name: Docker stop
         run: docker-compose -f ./selenium-grid/docker-compose.yml down
