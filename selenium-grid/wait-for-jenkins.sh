@@ -3,7 +3,7 @@
 
 set -e
 
-seconds=120
+seconds=220
 while ! curl -sSL "http://localhost:8080/" 2>&1 \
              | grep "<title>Sign in [Jenkins]</title>" >/dev/null; do
     echo 'Waiting for the Jenkins'
