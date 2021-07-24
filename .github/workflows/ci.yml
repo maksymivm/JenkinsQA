@@ -56,7 +56,7 @@ jobs:
 
       - name: Sleep 120
         run: |
-#          sleep 120
+          sleep 120
           cd /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/
           ls
 
