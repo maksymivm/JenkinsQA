@@ -56,8 +56,8 @@ jobs:
       - name: Wait Grid is UP
         run: ./selenium-grid/wait-for-grid.sh
 
-      - name: Wait Jenkins is UP
-        run: ./selenium-grid/wait-for-jenkins.sh
+#      - name: Wait Jenkins is UP
+#        run: ./selenium-grid/wait-for-jenkins.sh
 
       - name: Maven test
         run: mvn test
