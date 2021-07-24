@@ -54,7 +54,7 @@ System.out.println(con.getResponseCode());
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--window-size=1920,1080");
 
-            if (isRemoteWebDriver()) {
+            if (isRemoteWebDriver() && false) {
 
                 chromeOptions.setHeadless(true);
                 chromeOptions.addArguments("--disable-gpu");
@@ -72,7 +72,7 @@ System.out.println(con.getResponseCode());
         }
 
         //driver.get("http://localhost.host:8080/");
-        driver.get("http://jenkins123:8080/");
+        driver.get("http://localhost:8080/");
 System.out.println(driver.getPageSource());
         driver.findElement(By.id("j_username")).sendKeys("user");
         driver.findElement(By.xpath("//input[@name='j_password']")).sendKeys("12345678");
