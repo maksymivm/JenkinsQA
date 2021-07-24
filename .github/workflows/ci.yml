@@ -57,8 +57,11 @@ jobs:
       - name: Wait Grid is UP
         run: ./selenium-grid/wait-for-grid.sh
 
-      - name: Sleep 40
-        run: sleep 40
+      - name: Sleep
+        run: |
+          sleep 20
+          cd /var/jenkins_home
+          ls
 
       - name: Maven test
         run: mvn test
