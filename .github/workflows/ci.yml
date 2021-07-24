@@ -52,15 +52,13 @@ jobs:
         run: docker-compose -f ./selenium-grid/docker-compose.yml up -d
         env:
           HOST_IP: ${{ steps.ip.outputs.ipv4 }}
+          JENKINS_HOME: /var/jenkins_home
 
       - name: Wait Grid is UP
         run: ./selenium-grid/wait-for-grid.sh
 
-      - name: Sleep 120
-        run: |
-          sleep 120
-          cd /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/
-          ls
+      - name: Sleep 40
+        run: sleep 40
 
       - name: Maven test
         run: mvn test
