@@ -71,8 +71,11 @@ System.out.println(con.getResponseCode());
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
 
-        driver.get("http://localhost.host:8080/");
+        //driver.get("http://localhost.host:8080/");
         //driver.get("http://localhost:8080/");
+
+        driver.get("https://ya.ru");
+
 System.out.println(driver.getPageSource());
         driver.findElement(By.id("j_username")).sendKeys("user");
         driver.findElement(By.xpath("//input[@name='j_password']")).sendKeys("12345678");
