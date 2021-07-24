@@ -72,6 +72,8 @@ System.out.println(con.getResponseCode());
         }
 
         driver.get("http://jenkins123:8080/");
+        //driver.get("http://localhost:8080/");
+System.out.println(driver.getPageSource());
         driver.findElement(By.id("j_username")).sendKeys("admin");
         driver.findElement(By.xpath("//input[@name='j_password']")).sendKeys("159875321");
         driver.findElement(By.className("submit-button")).click();
