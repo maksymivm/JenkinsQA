@@ -44,7 +44,7 @@ jobs:
 #          sleep 120
 
       - name: Insatll Jenkins data
-        run: tar xf /backup/jenkins_backup.tar
+        run: tar xf /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/jenkins_backup.tar
 
       - name: Docker start
         run: docker-compose -f ./selenium-grid/docker-compose.yml up -d
