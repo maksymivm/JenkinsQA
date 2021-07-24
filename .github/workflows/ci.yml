@@ -31,11 +31,6 @@ jobs:
 #      - name: Docker login
 #        run: echo ${{ secrets.DOCKER_PAS }} | docker login --username ${{ secrets.DOCKER_USER }} --password-stdin
 
-      - name: Docker start
-        run: docker-compose -f ./selenium-grid/docker-compose.yml up -d
-        env:
-          HOST_IP: ${{ steps.ip.outputs.ipv4 }}
-
       - name: Wait Grid is UP
         run: ./selenium-grid/wait-for-grid.sh
 
@@ -45,14 +40,22 @@ jobs:
                curl http://buildemojis.com/jenkins_backup.tar -o /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/jenkins_backup.tar
          fi
 
-      - name: Insatll Jenkins data
-        run: |
-          docker run --rm --volumes-from jenkins-container -v /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid:/backup ubuntu bash -c "cd /var && tar xf /backup/jenkins_backup.tar --strip 1"
-          docker restart jenkins-container
-          sleep 120
+#      - name: Insatll Jenkins data
+#        run: |
+#          docker run --rm --volumes-from jenkins-container -v /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid:/backup ubuntu bash -c "cd /var && tar xf /backup/jenkins_backup.tar --strip 1"
+#          docker restart jenkins-container
+#          sleep 120
 
-#      - name: Maven test
-#        run: mvn test
+      - name: Insatll Jenkins data
+        run: tar xf /backup/jenkins_backup.tar
+
+      - name: Docker start
+        run: docker-compose -f ./selenium-grid/docker-compose.yml up -d
+        env:
+          HOST_IP: ${{ steps.ip.outputs.ipv4 }}
+
+      - name: Maven test
+        run: mvn test
 
       - name: Docker stop
         run: docker-compose -f ./selenium-grid/docker-compose.yml down
