@@ -55,7 +55,10 @@ jobs:
         run: ./selenium-grid/wait-for-grid.sh
 
       - name: Sleep 120
-        run: sleep 120
+        run: |
+#          sleep 120
+          cd /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/
+          ls
 
       - name: Maven test
         run: mvn test

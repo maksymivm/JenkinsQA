@@ -34,7 +34,6 @@ services:
   jenkins:
     image: jenkins/jenkins:lts
     user: root
-    container_name: jenkins-container
     hostname: jenkins123
     ports:
       - "8080:8080"
