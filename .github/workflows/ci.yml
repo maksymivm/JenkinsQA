@@ -31,9 +31,6 @@ jobs:
 #      - name: Docker login
 #        run: echo ${{ secrets.DOCKER_PAS }} | docker login --username ${{ secrets.DOCKER_USER }} --password-stdin
 
-      - name: Wait Grid is UP
-        run: ./selenium-grid/wait-for-grid.sh
-
       - name: Load Jenkins data
         run: |
          if [ ! -f /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/jenkins_backup.tar ]; then
@@ -53,6 +50,9 @@ jobs:
         run: docker-compose -f ./selenium-grid/docker-compose.yml up -d
         env:
           HOST_IP: ${{ steps.ip.outputs.ipv4 }}
+
+      - name: Wait Grid is UP
+        run: ./selenium-grid/wait-for-grid.sh
 
       - name: Maven test
         run: mvn test
