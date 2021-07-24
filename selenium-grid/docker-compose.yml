@@ -36,6 +36,8 @@ services:
     user: root
     container_name: jenkins-container
     hostname: jenkins123
+    ports:
+      - "8080:8080"
     volumes:
       - /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/var/jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock

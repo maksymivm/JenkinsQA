@@ -71,7 +71,7 @@ System.out.println(con.getResponseCode());
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
 
-        driver.get("http://jenkins123:8080/");
+        driver.get("http://localhost.host:8080/");
         //driver.get("http://localhost:8080/");
 System.out.println(driver.getPageSource());
         driver.findElement(By.id("j_username")).sendKeys("user");
