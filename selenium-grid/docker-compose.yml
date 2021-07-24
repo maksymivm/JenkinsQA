@@ -35,11 +35,9 @@ services:
     image: jenkins/jenkins:lts
     user: root
     hostname: jenkins123
-    privileged: true
     ports:
       - "8080:8080"
     volumes:
-      - "/home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/var/jenkins_home:/var/jenkins_home"
-      - "/var/run/docker.sock:/var/run/docker.sock"
+      - /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/var/jenkins_home:/jenkins_home
     environment:
-      - JENKINS_HOME=/var/jenkins_home
+      - JENKINS_HOME=/jenkins_home
