@@ -53,6 +53,8 @@ System.out.println(con.getResponseCode());
         if (driver == null) {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--window-size=1920,1080");
+                chromeOptions.setHeadless(true);
+                chromeOptions.addArguments("--disable-gpu");
 
             if (isRemoteWebDriver() && false) {
 
