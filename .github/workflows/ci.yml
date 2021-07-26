@@ -59,6 +59,10 @@ jobs:
 #      - name: Wait Jenkins is UP
 #        run: ./selenium-grid/wait-for-jenkins.sh
 
+      - name: sleep---
+        run: |
+          sleep 120
+
       - name: Maven test
         run: mvn test
 
