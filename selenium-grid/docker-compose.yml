@@ -35,8 +35,6 @@ services:
     image: jenkins/jenkins:lts
     user: root
     hostname: jenkins123
-    ports:
-      - "8080:8080"
     volumes:
       - /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/var/jenkins_home:/jenkins_home
     environment:
