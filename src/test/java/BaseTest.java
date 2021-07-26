@@ -37,7 +37,7 @@ System.out.println(con.getResponseCode());
             }
         } catch (IOException ignore) {}
 
-        if (!remoteWebDriver || true) {
+        if (!remoteWebDriver) {
             WebDriverManager.chromedriver().setup();
         }
     }
@@ -56,10 +56,10 @@ System.out.println(con.getResponseCode());
 chromeOptions.setHeadless(true);
 chromeOptions.addArguments("--disable-gpu");
 
-            if (isRemoteWebDriver() && false) {
+            if (isRemoteWebDriver()) {
 
-                chromeOptions.setHeadless(true);
-                chromeOptions.addArguments("--disable-gpu");
+//                chromeOptions.setHeadless(true);
+//                chromeOptions.addArguments("--disable-gpu");
 
                 try {
                     driver = new RemoteWebDriver(new URL(HUB_URL), chromeOptions);
@@ -73,8 +73,8 @@ chromeOptions.addArguments("--disable-gpu");
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
 
-        //driver.get("http://localhost.host:8080/");
-        driver.get("http://localhost:8080/");
+        driver.get("http://jenkins123:8080/");
+//        driver.get("http://localhost:8080/");
 System.out.println(driver.getPageSource());
         driver.findElement(By.id("j_username")).sendKeys("user");
         driver.findElement(By.xpath("//input[@name='j_password']")).sendKeys("12345678");
