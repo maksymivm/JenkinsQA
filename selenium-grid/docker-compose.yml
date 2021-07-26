@@ -10,8 +10,8 @@ services:
       - hub
     environment:
       - HUB_HOST=hub
-    extra_hosts:
-      - "localhost.host:${HOST_IP}"
+    networks:
+      internal:
 
   firefox:
     image: selenium/node-firefox:3.141.59-zirconium
@@ -21,8 +21,8 @@ services:
       - hub
     environment:
       - HUB_HOST=hub
-    extra_hosts:
-      - "localhost.host:${HOST_IP}"
+    networks:
+      internal:
 
   hub:
     image: selenium/hub:3.141.59-zirconium
@@ -30,6 +30,8 @@ services:
       - "4444:4444"
     depends_on:
       - jenkins
+    networks:
+      internal:
 
   jenkins:
     image: jenkins/jenkins:lts
@@ -38,3 +40,9 @@ services:
       - /home/runner/work/JenkinsQA/JenkinsQA/selenium-grid/var/jenkins_home:/jenkins_home
     environment:
       - JENKINS_HOME=/jenkins_home
+    networks:
+      internal:
+
+networks:
+  internal:
+    driver: bridge
